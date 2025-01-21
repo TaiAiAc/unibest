@@ -31,7 +31,8 @@ const httpInterceptor = {
       // #ifdef H5
       // console.log(__VITE_APP_PROXY__)
       if (JSON.parse(__VITE_APP_PROXY__)) {
-        // 啥都不需要做
+        // 如果开启了代理 统一拼接代理标识 符合直觉
+        options.url = import.meta.env.VITE_APP_PROXY_PREFIX + options.url
       } else {
         options.url = baseUrl + options.url
       }
